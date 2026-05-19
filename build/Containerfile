@@ -426,7 +426,7 @@ RUN microdnf install -y --nodocs \
     && rm -rf /tmp/sqlite-autoconf-3450300 \
     && microdnf remove -y gcc make \
     && microdnf clean all \
-    && corepack enable
+    && npm install -g corepack && corepack enable
 
 RUN pip3 install --no-cache-dir --no-warn-script-location mempalace
 
