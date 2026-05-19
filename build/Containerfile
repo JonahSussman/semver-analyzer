@@ -421,7 +421,7 @@ RUN microdnf install -y --nodocs \
     && curl -fsSL https://www.sqlite.org/2024/sqlite-autoconf-3450300.tar.gz \
         | tar xz -C /tmp \
     && cd /tmp/sqlite-autoconf-3450300 \
-    && ./configure --prefix=/usr/local && make -j$(nproc) && make install \
+    && ./configure --prefix=/usr/local --enable-session && make -j$(nproc) && make install \
     && echo /usr/local/lib > /etc/ld.so.conf.d/sqlite3.conf && ldconfig \
     && rm -rf /tmp/sqlite-autoconf-3450300 \
     && microdnf remove -y gcc make \
